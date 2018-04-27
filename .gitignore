@@ -5,6 +5,7 @@ ClaimENV
 ####Files
 ._*
 __*
+keys
 
 ####datbase
 Claims.db

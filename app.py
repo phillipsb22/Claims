@@ -14,10 +14,10 @@ from Misc.validators import validate_token, allowed_file
 from Models.User import User
 from Models.Claim import Claim, ClaimConversations
 
-GOOGLE_CLIENT_ID = 'xxxxxxxxx'
-GOOGLE_CLIENT_SECRET = 'xxxxxxxxxx'
-SECRET_KEY = 'development key'
-UPLOAD_FOLDER = "./images/"
+GOOGLE_CLIENT_ID = 'xxxxxxxxxxxxxxxxxxxxm'
+GOOGLE_CLIENT_SECRET = 'xxxxxxxxxxxxxxxxxxxxxx'
+SECRET_KEY = 'xxxxxxxxxxxxxxx'
+UPLOAD_FOLDER = "xxxxxxxxxxxxxxxxxx"
 
 app = Flask(__name__)
 api = Api(app)
@@ -360,16 +360,15 @@ class AdminConversations(Resource):
 
     def post(self):
         #used to reply to follow up
-        # if request.headers.get('Authorization') is None:
-        #     abort(400, "Token Invalid")
-        #
-        # valid = validate_token(request.headers["Authorization"]) or None
-        # if valid == None:
-        #     abort(400, "Please sign in again")
-        # else:
-        #     user = User.query.filter_by(email = valid).first()
-            # user_id = str(user.id)
-        user_id = 1
+        if request.headers.get('Authorization') is None:
+            abort(400, "Token Invalid")
+
+        valid = validate_token(request.headers["Authorization"]) or None
+        if valid == None:
+            abort(400, "Please sign in again")
+        else:
+            user = User.query.filter_by(email = valid).first()
+        user_id = str(user.id)
 
         admin = User.query.filter_by(id = user_id).first()
         if admin.admin == 0:
