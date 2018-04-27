@@ -1,0 +1,10 @@
+#### directories
+images
+ClaimENV
+
+####Files
+._*
+__*
+
+####datbase
+Claims.db
