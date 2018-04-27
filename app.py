@@ -14,8 +14,8 @@ from Misc.validators import validate_token, allowed_file
 from Models.User import User
 from Models.Claim import Claim, ClaimConversations
 
-GOOGLE_CLIENT_ID = '149579804317-qcbtp0kmmbjsocivu3jppit4eai4sm88.apps.googleusercontent.com'
-GOOGLE_CLIENT_SECRET = 'NiSUgeEVVoo0co5ES7w6Om-C'
+GOOGLE_CLIENT_ID = 'xxxxxxxxx'
+GOOGLE_CLIENT_SECRET = 'xxxxxxxxxx'
 SECRET_KEY = 'development key'
 UPLOAD_FOLDER = "./images/"
 
