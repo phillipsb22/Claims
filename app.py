@@ -228,7 +228,7 @@ class UserClaimConversations(Resource):
 
         return {"message": "message successfully sent"}
 
-    def update(self):
+    def put(self):
         # used to reply to message
         if request.headers.get('Authorization') is None:
             abort(400, "Token Invalid")
@@ -257,7 +257,7 @@ class UserClaimConversations(Resource):
 
         #in a live system I would link status to another table
         reply_conversation = ClaimConversations(claim_id = claim_id, message = message, user_id = user_id, status = 'reply')
-        db.add(new_conversation)
+        db.add(reply_conversation)
         db.commit()
 
         return {"message": "message successfully sent"}
@@ -356,7 +356,7 @@ class AdminConversations(Resource):
             conversations = ClaimConversations.query.filter_by(user_id = conv_user).order_by('id ASC')
             output = user_schema.dump(conversations).data
 
-            return {'user messages' : output}
+            return {'user_messages' : output}
 
     def post(self):
         #used to reply to follow up
